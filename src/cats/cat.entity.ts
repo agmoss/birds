@@ -8,7 +8,7 @@ import { Column, DataType, Model, Table } from 'sequelize-typescript';
     createdAt: "created_at",
     updatedAt: "updated_at"
 })
-export class CatEntity extends Model<CatEntity> {
+export class CatEntity extends Model {
     @Column({
         type: DataType.INTEGER,
         primaryKey: true,

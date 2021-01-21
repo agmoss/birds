@@ -1,4 +1,5 @@
 import { Inject, Injectable, NotFoundException } from "@nestjs/common";
+import { InjectModel } from "@nestjs/sequelize";
 import { Sequelize } from "sequelize";
 import { Cat, PageParams, CatConnection } from "../graphql.schema";
 import { CatEntity } from "./cat.entity";
@@ -6,7 +7,7 @@ import { CatEntity } from "./cat.entity";
 @Injectable()
 export class CatsService {
     constructor(
-        @Inject("CATS_REPOSITORY") private catsRepository: typeof CatEntity
+        @InjectModel(CatEntity) private catsRepository: typeof CatEntity
     ) { }
 
     private readonly cats: Cat[] = [{ id: 1, name: "Cat", age: 5 }];
